@@ -11,7 +11,7 @@ import numpy
 
 config = ConfigParser()
 config.read('../config/config.cfg')
-#get openAI api key
+# get openAI api key
 API_KEY = config.get('openAI', 'api_key')
 
 fresnodailynews = mysql.connector.connect(
