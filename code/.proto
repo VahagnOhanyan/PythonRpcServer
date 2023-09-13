@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package code;
+
+service MyService {
+    rpc ExtractKeyword (ExtractKeywordsRequest) returns (ExtractKeywordsResponse) {}
+}
+
+message ExtractKeywordsRequest {
+    string message = 1;
+}
+
+message ExtractKeywordsResponse {
+    string reply = 1;
+}

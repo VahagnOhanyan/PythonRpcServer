@@ -8,9 +8,8 @@ import mysql.connector
 from nltk.corpus import wordnet
 import numpy
 
-
 config = ConfigParser()
-config.read('../config/config.cfg')
+config.read('config/config.cfg')
 # get openAI api key
 API_KEY = config.get('openAI', 'api_key')
 
@@ -97,9 +96,11 @@ def extract_keywords(t):
                     for i in e_array:
                         keywords_set.append(pre_word + ":" + i.strip())
     keywords_set = [*set(keywords_set)]
-    print(keywords_set)
     result = ','.join(keywords_set)
     print(result)
+    result = re.sub(r"[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]", "", result)
+
+    print(repr(result))
     return result
 
 
